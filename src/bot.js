@@ -7,6 +7,7 @@ const states = new StateEngine()
 let bot = new Bot();
 
 function setState(session, state) {
+  console.log("I'm here")
   session.set('state', state);
   session.set('startTimestamp', Date.now());
 }
@@ -14,17 +15,17 @@ function setState(session, state) {
 bot.onEvent = function(session, message) {
   switch (message.type) {
     case 'Init':
-      setState(session, 'welcome');
       break
     case 'Message':
       const twoHours = 2 * 60 * 60 * 1000;
-      if (Date.now() - session.get('startTimestamp') > twoHours)
+      if (!session.get("state") || Date.now() - session.get('startTimestamp') > twoHours)
         setState(session, 'welcome');
 
       // Debug functionality
-      if (message.body.substring(0,6) == '/debug')
-        setState(session, message.body.substring(7))
+      if (message.body[0] == '/')
+        setState(session, message.body.substring(1))
 
+      console.log(session.get('state'));
       states.getState(session).onMessage(session, message)
       break
     case 'Command':
