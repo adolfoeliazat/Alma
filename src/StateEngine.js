@@ -120,7 +120,7 @@ class StateEngine {
                 type: 'group',
                 label: 'Risk Assessor - Rating - Fee',
                 controls: [
-                  {type: "button", label: "Dharma Risk Assessment Ltd. - A --$0.5",value: 'raa-english'},
+                  {type: "button", label: "Dharma Risk Assessment Ltd. - A --$0.5", value: 'raa-english'},
                   {type: "button", label: "आधार जोखिम आकलन - BB - $0.35", value: 'raa-hindi'},
                   {type: "button", label: "Aadhaar Risk Assessment - C - $0.15", value: 'raa-hebrew'}
                 ]
