@@ -1,5 +1,6 @@
 const State = require('./State')
 const SOFA = require('sofa-js')
+const { Loan, Period } = require('./Loan');
 
 // temporary -- hardcoding loan terms
 function loanTerms(session, packageChoice) {
@@ -223,13 +224,13 @@ class StateEngine {
         onCommand: (session, command) => {
           if (command.value == 'package-a') {
             session.set("package", "A")
-            this.transition(session, "disclaimer")
+            this.transition(session, "confirmation")
           } else if (command.value == 'package-b') {
             session.set("package", "B")
-            this.transition(session, "disclaimer")
+            this.transition(session, "confirmation")
           } else if (command.value == 'package-c') {
             session.set("package", "C")
-            this.transition(session, "disclaimer")
+            this.transition(session, "confirmation")
           } else if (command.value == 'cancel') {
             session.reply("Thank you for your time!")
             this.transition(session, "feedbackSurvey")
@@ -237,8 +238,14 @@ class StateEngine {
         }
       }),
 
-      disclaimer: new State({
+      confirmation: new State({
         action: (session) => {
+          const period = new Period('Monthly', 1);
+          const loan = new Loan(session.get("paymentAddress"),
+                                '0xd721fac5ffc9cc5b7324df740673c4c2c2ccd09a',
+                                100, 10, period, 2,
+                                Date.now() + (60 * 60 * 1000 * 24 * 30));
+
           session.reply("You’ve chosen Option " + session.get("package") +
             ". Now, before we move forward, it’s important that you understand…")
           session.reply("Dharma will send you reminders in the days leading " +
@@ -253,54 +260,20 @@ class StateEngine {
               "interest rates in the future.",
             showKeyboard: false,
             controls: [
-              { type: 'button', label: 'I understand.', value: 0 }
+              { type: 'button', label: 'I understand.', action: 'Webview::' + loan.confirmationDappURL() }
             ]
           }))
         },
 
-        onCommand: (session, command) => {
-          this.transition(session, 'confirmation')
-        }
-      }),
-
-      confirmation: new State({
-        action: (session) => {
-          session.reply("Excellent!  Just confirming...")
-          session.reply(loanTerms(session, session.get("package")))
-          session.reply(SOFA.Message({
-            body: "Are these the loan terms you have chosen and agree to " +
-                  "meeting?\n\n(WARNING: Once you confirm, it is impossible " +
-                  "to undo the loan request)",
-            showKeyboard: false,
-            controls: [
-              { type: 'button', label: 'Yes', value: 'yes' },
-              { type: 'button', label: 'Cancel', value: 'cancel' }
-            ]
-          }))
-        },
-
+        // Confirmation takes user out into the dapp in order to sign the
+        // loan contract.
         onCommand: (session, command) => {
           if (command.value == 'yes') {
-            this.transition(session, "signContract")
-          } else if (command.value == 'cancel') {
-            this.transition(session, 'chooseLoanPackage');
+            this.transition(session, 'feedbackSurveyQ1');
+          } else if (command.value == 'no') {
+            session.reply("Ok.  Have a nice day!");
+            session.set(state, null);
           }
-        }
-      }),
-
-      signContract: new State({
-        action: (session) => {
-          session.reply("Please type your full name in order to confirm the loan request:\n");
-          session.reply("By signing below, I agree to pay back the loan " +
-            "principal in full in addition to the agreed upon interest.  " +
-            "Additionally, I agree that I am fully aware of the consequences " +
-            "that will befall my future creditworthiness on the Dharma Loan " +
-            "network if I do not repay the loan stipulated by the following terms:")
-          session.reply(loanTerms(session, session.get("package")))
-        },
-
-        onMessage: (session, message) => {
-          this.transition(session, "receipt");
         }
       }),
 
@@ -327,14 +300,6 @@ class StateEngine {
           }))
         },
 
-        onCommand: (session, command) => {
-          if (command.value == 'yes') {
-            this.transition(session, 'feedbackSurveyQ1');
-          } else if (command.value == 'no') {
-            session.reply("Ok.  Have a nice day!");
-            session.set(state, null);
-          }
-        }
       }),
 
       feedbackSurveyQ1: new State({

@@ -30,6 +30,12 @@ class Session {
     this.load(onReady);
   }
 
+  static retrieve(bot, userId, callback) {
+    let session = new Session(bot, bot.client.store, bot.client.config, userId, function() {
+      callback(session);
+    })
+  }
+
   get(key) {
     if (key === 'tokenId') {
       return this.address;

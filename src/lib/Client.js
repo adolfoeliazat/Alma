@@ -52,6 +52,7 @@ class Client {
       try {
         let wrapped = JSON.parse(message);
         if (wrapped.recipient == this.config.tokenIdAddress) {
+          console.log("wrapped.sender: " + wrapped.sender)
           let session = new Session(this.bot, this.store, this.config, wrapped.sender, () => {
             let sofa = SOFA.parse(wrapped.sofa);
             if (sofa.type != 'Payment') {

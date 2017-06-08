@@ -3,8 +3,10 @@ const SOFA = require('sofa-js')
 const Fiat = require('./lib/Fiat')
 const StateEngine = require('./StateEngine')
 const states = new StateEngine()
+const SessionServer = require('./SessionServer');
 
 let bot = new Bot();
+let sessionServer = new SessionServer(bot);
 
 function setState(session, state) {
   console.log("I'm here")
@@ -17,6 +19,8 @@ bot.onEvent = function(session, message) {
     case 'Init':
       break
     case 'Message':
+      console.log("Payment Address: " + session.get("paymentAddress"));
+      console.log("UserId: " + session)
       const twoHours = 2 * 60 * 60 * 1000;
       if (!session.get("state") || Date.now() - session.get('startTimestamp') > twoHours)
         setState(session, 'welcome');
