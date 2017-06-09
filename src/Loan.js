@@ -1,4 +1,4 @@
-DAPP_ROOT = 'https://853fb367.ngrok.io'
+DAPP_ROOT = 'broadcast.dharma.io/';
 
 class Period {
   constructor(type, length) {

@@ -48,7 +48,7 @@ class SessionServer {
     const userId = req.params.userId;
     const verified = req.params.verified == 'true';
 
-    if (req.hostname != 'risk.dharma.io')
+    if (req.hostname != 'oz.dharma.io')
       console.log("fraudulent!")
       res.send(500);
       return;
