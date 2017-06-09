@@ -122,8 +122,8 @@ class StateEngine {
                 label: 'Risk Assessor - Rating - Fee',
                 controls: [
                   {type: "button", label: "Dharma Risk Assessment Ltd. - A --$0.5", value: 'raa-english'},
-                  {type: "button", label: "आधार जोखिम आकलन - BB - $0.35", value: 'raa-hindi'},
-                  {type: "button", label: "Aadhaar Risk Assessment - C - $0.15", value: 'raa-hebrew'}
+                  {type: "button", label: "आधार जोखिम आकलन (OFFLINE)- BB - $0.35", value: 'raa-hindi'},
+                  {type: "button", label: "Aadhaar Risk (OFFLINE) - C - $0.15", value: 'raa-hebrew'}
                 ]
               },
               {
@@ -143,21 +143,15 @@ class StateEngine {
           switch (command.value) {
             case 'raa-english':
               session.reply("Dharma Risk Assessment Ltd. will message you " +
-                "shortly with further instructions.")
-              // this.transition(session, 'risk-assessment-process')
-              this.transition(session, 'riskAssessmentComplete')
+                "shortly with further instructions.  Make sure to check your messages -- it's easy to miss the notification!")
               break;
             case 'raa-hindi':
-              session.reply("आधार जोखिम आकलन will message you " +
-                "shortly with further instructions.")
-              // this.transition(session, 'risk-assessment-process')
-              this.transition(session, 'riskAssessmentComplete')
+              session.reply("आधार जोखिम आकलन is offline right now.")
+              this.transition(session, 'riskAssessorMenu')
               break;
             case 'raa-hebrew':
-              session.reply("Aadhaar Risk Assessment will message you " +
-                "shortly with further instructions.")
-              // this.transition(session, 'risk-assessment-process')
-              this.transition(session, 'riskAssessmentComplete')
+              session.reply("Aadhaar Risk is offline right now.")
+              this.transition(session, 'riskAssessorMenu')
               break;
             case 'faq-what-is-raa':
               session.reply("Sometimes, borrowers are either unwilling or " +
@@ -183,13 +177,17 @@ class StateEngine {
 
       riskAssessmentComplete: new State({
         action: (session) => {
-          console.log("we here");
-          const principal = session.get("principal");
+          if (session.verified) {
+            const principal = session.get("principal");
 
-          session.reply("Congratulations -- you loan’s been approved by " +
-            "Dharma Risk Assessment Ltd.");
+            session.reply("Congratulations -- you loan’s been approved by " +
+              "Dharma Risk Assessment Ltd.");
 
-          this.transition(session, 'chooseLoanPackage');
+            this.transition(session, 'chooseLoanPackage');
+          } else {
+            session.reply("It seems Dharma Risk Assessment denied your loan request.  Don’t worry -- you can always try to apply again with any risk assessor (including Dharma Risk Assessment).  Which risk assessor would you like to work with?");
+            this.transition(session, "riskAssessorMenu");
+          }
         }
       }),
 
@@ -241,8 +239,9 @@ class StateEngine {
       confirmation: new State({
         action: (session) => {
           const period = new Period('Monthly', 1);
-          const loan = new Loan(session.get("paymentAddress"),
-                                '0xd721fac5ffc9cc5b7324df740673c4c2c2ccd09a',
+          const loan = new Loan(session.get("address"),
+                                session.get("paymentAddress"),
+                                '0xe9f600c6af5feed38eaf089e089523c275db8b06',
                                 100, 10, period, 2,
                                 Date.now() + (60 * 60 * 1000 * 24 * 30));
 
@@ -279,14 +278,9 @@ class StateEngine {
 
       receipt: new State({
         action: (session) => {
-          const fundingPeriodExpiration =
-            (new Date()).getMonth() + 1 + "/" + (new Date()).getDay();
           session.reply("Your loan request has been broadcasted out to the " +
-            "Dharma network -- you can see the transaction here: https://etherscan.io/asdfa;sldkfja;s." +
-            " Your loan request has a 30-day funding period, meaning that, " +
-            "if your loan is not fully funded by " + fundingPeriodExpiration +
-             ", the loan request will self-destruct and all raised funds will " +
-             "be returned to the investors.  We’ll send you a message when " +
+            "Dharma network -- you can see the transaction here: https://etherscan.io/tx/" +
+            session.get("txHash") + ". We’ll send you a message when " +
              "your loan has been fully funded and the loan principal will be " +
              "automatically sent to your Token wallet.");
           session.reply("Thank you!")

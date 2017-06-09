@@ -1,4 +1,4 @@
-DAPP_ROOT = 'http://48e87c01.ngrok.io'
+DAPP_ROOT = 'https://853fb367.ngrok.io'
 
 class Period {
   constructor(type, length) {
@@ -8,7 +8,8 @@ class Period {
 }
 
 class Loan {
-  constructor(borrower, attestor, principal, interest, period, termLength, fundingTimelock) {
+  constructor(tokenId, borrower, attestor, principal, interest, period, termLength, fundingTimelock) {
+    this.tokenId = tokenId;
     this.borrower = borrower;
     this.attestor = attestor;
     this.principal = principal;
@@ -19,7 +20,8 @@ class Loan {
   }
 
   confirmationDappURL() {
-    const url =  DAPP_ROOT + "?" + "borrower=" + this.borrower + "&" +
+    let url =  DAPP_ROOT + "?tokenId=" + this.tokenId + "&" +
+                             "borrower=" + this.borrower + "&" +
                              "attestor=" + this.attestor + "&" +
                              "principal=" + this.principal + "&" +
                              "interest=" + this.interest + "&" +
@@ -27,7 +29,6 @@ class Loan {
                              "periodLength=" + this.period.length + "&" +
                              "termLength=" + this.termLength + "&" +
                              "fundingTimelock=" + this.fundingTimelock;
-    console.log(url);
     return url;
   }
 }
