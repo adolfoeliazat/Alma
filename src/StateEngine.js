@@ -1,4 +1,4 @@
-RAA_ROOT = "oz.dharma.io"
+RAA_ROOT = "https://limitless-depths-97449.herokuapp.com"
 
 const State = require('./State')
 const SOFA = require('sofa-js')
