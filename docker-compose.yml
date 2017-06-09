@@ -6,7 +6,7 @@ services:
       - redis
       - postgres
     environment: &environment
-      - TOKEN_APP_SEED=home fan cheap glide leave open ribbon egg quote slender term settle
+      - TOKEN_APP_SEED=embrace crack admit trip speed rural armed scout project lock else learn
       - TOKEN_APP_USERNAME=DharmaAssistant
       - TOKEN_APP_NAME=Dharma Assistant
       - TOKEN_APP_AVATAR=attachments/square_logo.png
