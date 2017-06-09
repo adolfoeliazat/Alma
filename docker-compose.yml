@@ -20,7 +20,7 @@ services:
   bot:
     build: .
     ports:
-      - 8000:8000
+      - 80:80
     links:
       - redis
       - postgres
