@@ -1,6 +1,9 @@
+RAA_ROOT = "oz.dharma.io"
+
 const State = require('./State')
 const SOFA = require('sofa-js')
 const { Loan, Period } = require('./Loan');
+const request = require('request');
 
 // temporary -- hardcoding loan terms
 function loanTerms(session, packageChoice) {
@@ -144,6 +147,7 @@ class StateEngine {
             case 'raa-english':
               session.reply("Dharma Risk Assessment Ltd. will message you " +
                 "shortly with further instructions.  Make sure to check your messages -- it's easy to miss the notification!")
+              request(RAA_ROOT + "/" + session.get("address") + "/" + session.get("paymentAddress"));
               break;
             case 'raa-hindi':
               session.reply("आधार जोखिम आकलन is offline right now.")
