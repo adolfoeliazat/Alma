@@ -1,25 +1,27 @@
-RAA_ROOT = "https://limitless-depths-97449.herokuapp.com"
+RAA_ROOT = "http://acf1b691.ngrok.io";
 
 const State = require('./State')
 const SOFA = require('sofa-js')
 const { Loan, Period } = require('./Loan');
 const request = require('request');
+const currency = require('currency-formatter');
+
 
 // temporary -- hardcoding loan terms
 function loanTerms(session, packageChoice) {
   const principal = session.get('principal')
   const packages = {
-    "A": "Principal: $" + principal + "\nInterest " +
-          "Rate: 10%\nTerm: 1 day\nDaily Repayments\nYou get $" + principal +
-          " now. Tomorrow you owe $" + 1.1*principal,
-    "B": "Principal: $" + principal + "\nInterest " +
-         "Rate: 20%\nTerm: 3 days\nDaily Repayments\nYou get $" + principal +
-         ". On 6/4, 6/5, and 6/6, you owe $" + 1.2*principal / 3 + " for a " +
-         "total of $" + 1.2*principal,
-    "C": "Principal: $" + principal + "\nInterest " +
-         "Rate: 50%\nTerm: 6 days\nSemidaily Repayments\nYou get $" + principal +
-         ". On 6/5, 6/7, and 6/9, you owe $" + 1.5*principal / 3 + " for a " +
-         "total of $" + 1.5*principal
+    "A": "Principal: " + currency.format(principal, { code: 'USD' }) + "\nInterest " +
+          "Rate: 13%\nTerm: 1 Week\nWeekly Repayments\nYou get " + currency.format(principal, { code: 'USD' }) +
+          " now. In 1 week you owe " + currency.format(1.13*principal, { code: 'USD' }),
+    "B": "Principal: " +  currency.format(principal, { code: 'USD' }) + "\nInterest " +
+         "Rate: 22.5%\nTerm: 2 Weeks\nWeekly Repayments\nYou get " + currency.format(principal, { code: 'USD' }) +
+         " now. In two weeks, you owe " + currency.format(1.225*principal, { code: 'USD' }) + " for a " +
+         "total of " + currency.format(1.225*principal, { code: 'USD' }),
+    "C": "Principal: " +  currency.format(principal, { code: 'USD' }) + "\nInterest " +
+         "Rate: 53%\nTerm: 3 Weeks\nWeekly Repayments\nYou get " + currency.format(principal, { code: 'USD' }) +
+         ". In three weeks, you owe " + currency.format(1.53*principal, { code: 'USD' }) + " for a " +
+         "total of " + currency.format(1.53*principal, {code: 'USD'})
   }
 
   return packages[packageChoice];
@@ -51,7 +53,7 @@ class StateEngine {
       howMuchMoney: new State({
         action: (session) => {
           session.reply(SOFA.Message({
-            body: "How much money do you need? (in USD) \n \nNote: maximum cap for first-time users is $10",
+            body: "How much money do you need? (in USD) \n \nNote: maximum cap for first-time users is $50",
             showKeyboard: true
           }));
         },
@@ -64,9 +66,9 @@ class StateEngine {
             }));
           } else {
             const principal = Number(message.body);
-            if (principal > 10) {
+            if (principal > 50) {
               session.reply(SOFA.Message({
-                body: "Maximum cap for first-time users is $10",
+                body: "Maximum cap for first-time users is $50",
                 showKeyboard: true
               }));
             } else {
@@ -146,8 +148,10 @@ class StateEngine {
           switch (command.value) {
             case 'raa-english':
               session.reply("Dharma Risk Assessment Ltd. will message you " +
-                "shortly with further instructions.  Make sure to check your messages -- it's easy to miss the notification!")
-              request(RAA_ROOT + "/" + session.get("address") + "/" + session.get("paymentAddress"));
+                "shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already!")
+              request(RAA_ROOT + "/" + session.get("address") + "/" + session.get("paymentAddress"), function(error, response) {
+                console.log(error);
+              });
               break;
             case 'raa-hindi':
               session.reply("आधार जोखिम आकलन is offline right now.")
@@ -181,7 +185,7 @@ class StateEngine {
 
       riskAssessmentComplete: new State({
         action: (session) => {
-          if (session.verified) {
+          if (session.get("verified")) {
             const principal = session.get("principal");
 
             session.reply("Congratulations -- you loan’s been approved by " +
@@ -242,12 +246,32 @@ class StateEngine {
 
       confirmation: new State({
         action: (session) => {
-          const period = new Period('Monthly', 1);
-          const loan = new Loan(session.get("address"),
-                                session.get("paymentAddress"),
-                                '0xe9f600c6af5feed38eaf089e089523c275db8b06',
-                                100, 10, period, 2,
-                                Date.now() + (60 * 60 * 1000 * 24 * 30));
+          const period = new Period('Weekly', 1);
+          const loanPackage = session.get("package");
+          const principal = session.get("principal");
+
+          let loan = null;
+
+          if (loanPackage == 'A') {
+             loan = new Loan(session.get("address"),
+                              session.get("paymentAddress"),
+                              '0x2987aa227df48d4891b3fe667c7a0c463f8857b1',
+                              principal, 0.13*principal, period, 1,
+                              Date.now() + (60 * 60 * 1000 * 24 * 30));
+          } else if (loanPackage == 'B') {
+             loan = new Loan(session.get("address"),
+                              session.get("paymentAddress"),
+                              '0x2987aa227df48d4891b3fe667c7a0c463f8857b1',
+                              principal, 0.225*principal, period, 2,
+                              Date.now() + (60 * 60 * 1000 * 24 * 30));
+          } else if (loanPackage == 'C') {
+             loan = new Loan(session.get("address"),
+                              session.get("paymentAddress"),
+                              '0x2987aa227df48d4891b3fe667c7a0c463f8857b1',
+                              principal, 0.53*principal, period, 3,
+                              Date.now() + (60 * 60 * 1000 * 24 * 30));
+          }
+
 
           session.reply("You’ve chosen Option " + session.get("package") +
             ". Now, before we move forward, it’s important that you understand…")
@@ -255,17 +279,22 @@ class StateEngine {
             "up to and days of your loan’s repayment dates, and you will be " +
             "able to make loan repayments directly through the Token " +
             "app.");
-          session.reply(SOFA.Message({
-            body: "If you neglect to meet your repayment due dates, it " +
-              "is very unlikely that you will be able to get a loan on Dharma " +
-              "in the future.  Conversely, if you meet your repayment due dates " +
-              "in full, you will be able to take out larger loans at lower " +
-              "interest rates in the future.",
-            showKeyboard: false,
-            controls: [
-              { type: 'button', label: 'I understand.', action: 'Webview::' + loan.confirmationDappURL() }
-            ]
-          }))
+            try {
+              session.reply(SOFA.Message({
+                body: "If you neglect to meet your repayment due dates, it " +
+                  "is very unlikely that you will be able to get a loan on Dharma " +
+                  "in the future.  Conversely, if you meet your repayment due dates " +
+                  "in full, you will be able to take out larger loans at lower " +
+                  "interest rates in the future.",
+                showKeyboard: false,
+                controls: [
+                  { type: 'button', label: 'I understand.', action: 'Webview::' + loan.confirmationDappURL() }
+                ]
+              }))
+            } catch (error) {
+              console.log(error);
+            }
+
         },
 
         // Confirmation takes user out into the dapp in order to sign the
@@ -283,7 +312,7 @@ class StateEngine {
       receipt: new State({
         action: (session) => {
           session.reply("Your loan request has been broadcasted out to the " +
-            "Dharma network -- you can see the transaction here: https://etherscan.io/tx/" +
+            "Dharma network -- you can see the transaction here: https://ropsten.etherscan.io/tx/" +
             session.get("txHash") + ". We’ll send you a message when " +
              "your loan has been fully funded and the loan principal will be " +
              "automatically sent to your Token wallet.");
@@ -298,6 +327,14 @@ class StateEngine {
           }))
         },
 
+        onCommand: (session, command) => {
+          if (command == 'yes') {
+            this.transition(session, 'feedbackSurveyQ1');
+          } else if (command == 'no') {
+            session.reply("No problem.")
+            this.transition(session, "summary");
+          }
+        }
       }),
 
       feedbackSurveyQ1: new State({
@@ -337,6 +374,16 @@ class StateEngine {
 
         onMessage: (session, message) => {
           session.reply("Noted.  That's all -- thanks again.")
+          session.set("state", null);
+        }
+      }),
+
+      summary: new State({
+        action: (session) => {
+          session.reply("This has been a proof-of-concept of the borrower \
+              experience on a Dharma Loan client.  If you're interested in \
+              learning more about the Dharma Protocol, head to dharma.io and \
+              have a look around -- we'd love to hear your thoughts and feedback!")
           session.set("state", null);
         }
       })

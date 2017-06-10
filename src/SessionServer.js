@@ -46,16 +46,10 @@ class SessionServer {
 
   riskAssessmentDone(req, res) {
     const userId = req.params.userId;
-    const verified = req.params.verified == 'true';
-
-    if (req.hostname != 'oz.dharma.io')
-      console.log("fraudulent!")
-      res.send(500);
-      return;
 
     Session.retrieve(this.bot, userId, (session) => {
       if (session) {
-          session.set("verified", verified);
+          session.set("verified", true);
           this.states.transition(session, 'riskAssessmentComplete')
       }
     })
