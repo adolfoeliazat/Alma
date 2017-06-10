@@ -1,4 +1,4 @@
-DAPP_ROOT = 'http://1c63082a.ngrok.io';
+DAPP_ROOT = 'http://ec2-34-210-199-247.us-west-2.compute.amazonaws.com' 
 
 class Period {
   constructor(type, length) {

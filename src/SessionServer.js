@@ -46,6 +46,7 @@ class SessionServer {
 
   riskAssessmentDone(req, res) {
     const userId = req.params.userId;
+    console.log("I am here now");	
 
     Session.retrieve(this.bot, userId, (session) => {
       if (session) {
