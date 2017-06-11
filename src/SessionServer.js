@@ -2,6 +2,11 @@ const Session = require('./lib/Session')
 const Web3 = require('web3');
 const StateEngine = require('./StateEngine')
 const express = require('express')
+const https = require('https');
+
+const privateKey  = fs.readFileSync('ssl/server.key', 'utf8');
+const certificate = fs.readFileSync('ssl/server.crt', 'utf8');
+const credentials = {key: privateKey, cert: certificate};
 
 PORT = process.env["PORT"];
 
@@ -11,6 +16,8 @@ class SessionServer {
     this.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io"));
     this.states = new StateEngine()
     this.app = express();
+    this.https = https.createServer(credentials, this.app);
+
 
     this.app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
@@ -21,7 +28,7 @@ class SessionServer {
     this.app.get('/:userId/generateReceipt/:txHash', this.generateReceipt.bind(this));
 
     this.app.get('/:userId/:verified', this.riskAssessmentDone.bind(this))
-    this.app.listen(PORT || 80);
+    this.https.listen(PORT || 80);
   }
 
   generateReceipt(req, res) {
