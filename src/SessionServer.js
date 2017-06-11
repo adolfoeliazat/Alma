@@ -36,7 +36,6 @@ class SessionServer {
   generateReceipt(req, res) {
     const txHash = req.params.txHash;
     const userId = req.params.userId;
-    console.log("Hello world!");
 
     this.web3.eth.getTransaction(txHash, function(error, tx) {
       if (error) {

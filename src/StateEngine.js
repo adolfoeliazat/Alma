@@ -330,9 +330,9 @@ class StateEngine {
         },
 
         onCommand: (session, command) => {
-          if (command == 'yes') {
+          if (command.value == 'yes') {
             this.transition(session, 'feedbackSurveyQ1');
-          } else if (command == 'no') {
+          } else if (command.value == 'no') {
             session.reply("No problem.")
             this.transition(session, "summary");
           }
