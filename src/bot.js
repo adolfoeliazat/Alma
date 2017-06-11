@@ -46,7 +46,7 @@ bot.onEvent = function(session, message) {
     case 'Command':
       mixpanel.track("event-command", {
         tokenId: session.get("address"),
-        value: command.value,
+        value: message.value,
         state: session.get("state")
       });
       states.getState(session).onCommand(session, message)
