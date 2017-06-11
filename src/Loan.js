@@ -1,4 +1,4 @@
-DAPP_ROOT = 'http://ec2-34-210-199-247.us-west-2.compute.amazonaws.com' 
+DAPP_ROOT = process.env['DAPP_ROOT_PATH']; 
 
 class Period {
   constructor(type, length) {

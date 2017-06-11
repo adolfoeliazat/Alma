@@ -1,4 +1,4 @@
-RAA_ROOT = "http://ec2-52-41-126-119.us-west-2.compute.amazonaws.com:80";
+RAA_ROOT = process.env['OZ_ROOT_PATH'];
 
 const State = require('./State')
 const SOFA = require('sofa-js')
