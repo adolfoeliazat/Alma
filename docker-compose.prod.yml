@@ -30,7 +30,7 @@ services:
     environment: *environment
     volumes:
       - ./config/docker.yml:/usr/src/bot/config.yml
-      - ./ssl:/usr/src/bot/ssl
+      - ./ssl:/usr/src/bot/src/ssl
       - ./src:/usr/src/bot/src
   redis:
     build: dependencies/redis

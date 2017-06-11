@@ -6,8 +6,8 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 
-const privateKey  = fs.readFileSync(__dirname + '/../ssl/server.key', 'utf8');
-const certificate = fs.readFileSync(__dirname + '/../ssl/server.crt', 'utf8');
+const privateKey  = fs.readFileSync(__dirname + '/ssl/server.key', 'utf8');
+const certificate = fs.readFileSync(__dirname + '/ssl/server.cert', 'utf8');
 const credentials = {key: privateKey, cert: certificate};
 
 PORT = process.env["PORT"];
