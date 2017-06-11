@@ -16,7 +16,6 @@ services:
       - DATABASE_URL=postgres://token:va5uOdJBqu2dZ1@postgres:5432/token
       - LOG_LEVEL=INFO
       - ENABLE_LOG_TIMESTAMPS=0
-      - PORT=80
     volumes:
       - ./config/docker.yml:/usr/src/headless-client/config.yml
       - ./attachments:/usr/src/headless-client/attachments
@@ -24,6 +23,7 @@ services:
     build: .
     ports:
       - 80:80
+      - 443:443
     links:
       - redis
       - postgres
