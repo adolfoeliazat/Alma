@@ -10,19 +10,20 @@ services:
       - TOKEN_APP_USERNAME=AlmaTest
       - TOKEN_APP_NAME=AlmaTest
       - TOKEN_APP_AVATAR=attachments/square_logo.png
-      - OZ_ROOT_PATH=localhost
-      - DAPP_ROOT_PATH=localhost
+      - OZ_ROOT_PATH=https://dharma-oz.ngrok.io
+      - DAPP_ROOT_PATH=https://dharma-serra.ngrok.io
       - REDIS_URL=redis://h:rlcMWNrxXgqS0xM8aWCYuE0R@redis:6379
       - DATABASE_URL=postgres://token:va5uOdJBqu2dZ1@postgres:5432/token
       - LOG_LEVEL=INFO
       - ENABLE_LOG_TIMESTAMPS=0
+      - PORT=8000
     volumes:
       - ./config/docker.yml:/usr/src/headless-client/config.yml
       - ./attachments:/usr/src/headless-client/attachments
   bot:
     build: .
     ports:
-      - 80:80
+      - 8000:8000
     links:
       - redis
       - postgres

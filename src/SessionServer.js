@@ -3,6 +3,8 @@ const Web3 = require('web3');
 const StateEngine = require('./StateEngine')
 const express = require('express')
 
+PORT = process.env["PORT"];
+
 class SessionServer {
   constructor(bot) {
     this.bot = bot;
@@ -19,7 +21,7 @@ class SessionServer {
     this.app.get('/:userId/generateReceipt/:txHash', this.generateReceipt.bind(this));
 
     this.app.get('/:userId/:verified', this.riskAssessmentDone.bind(this))
-    this.app.listen(80);
+    this.app.listen(PORT || 80);
   }
 
   generateReceipt(req, res) {
@@ -46,7 +48,7 @@ class SessionServer {
 
   riskAssessmentDone(req, res) {
     const userId = req.params.userId;
-    console.log("I am here now");	
+    console.log("I am here now");
 
     Session.retrieve(this.bot, userId, (session) => {
       if (session) {
