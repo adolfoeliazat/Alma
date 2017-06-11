@@ -149,7 +149,9 @@ class StateEngine {
             case 'raa-english':
               session.reply("Dharma Risk Assessment Ltd. will message you " +
                 "shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already!")
-              request(RAA_ROOT + ":80/" + session.get("address") + "/" + session.get("paymentAddress"), function(error, response, body) {
+              var url = RAA_ROOT + ":80/" + session.get("address") + "/" + session.get("paymentAddress");
+              console.log("Requesting from " + url);
+              request(url, function(error, response, body) {
                 console.log(error);
               });
               break;
