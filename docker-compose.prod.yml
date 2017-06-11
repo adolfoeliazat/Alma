@@ -10,8 +10,8 @@ services:
       - TOKEN_APP_USERNAME=DharmaAssistant
       - TOKEN_APP_NAME=Dharma Assistant
       - TOKEN_APP_AVATAR=attachments/square_logo.png
-      - OZ_ROOT_PATH=ec2-52-41-126-119.us-west-2.compute.amazonaws.com
-      - DAPP_ROOT_PATH=ec2-34-210-199-247.us-west-2.compute.amazonaws.com
+      - OZ_ROOT_PATH=http://ec2-52-41-126-119.us-west-2.compute.amazonaws.com
+      - DAPP_ROOT_PATH=http://ec2-34-210-199-247.us-west-2.compute.amazonaws.com
       - REDIS_URL=redis://h:rlcMWNrxXgqS0xM8aWCYuE0R@redis:6379
       - DATABASE_URL=postgres://token:va5uOdJBqu2dZ1@postgres:5432/token
       - LOG_LEVEL=INFO
