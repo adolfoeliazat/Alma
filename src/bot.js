@@ -4,6 +4,8 @@ const Fiat = require('./lib/Fiat')
 const StateEngine = require('./StateEngine')
 const states = new StateEngine()
 const SessionServer = require('./SessionServer');
+const Mixpanel = require('mixpanel');
+const mixpanel = Mixpanel.init('b34b8795ac94c94e23702f278b3193f5');
 
 let bot = new Bot();
 let sessionServer = new SessionServer(bot);
@@ -17,8 +19,17 @@ function setState(session, state) {
 bot.onEvent = function(session, message) {
   switch (message.type) {
     case 'Init':
+      mixpanel.track("event-init", {
+        tokenId: session.get("address")
+      });
       break
     case 'Message':
+      mixpanel.track("event-message", {
+        tokenId: session.get("address"),
+        message: message.body,
+        state: session.get("state")
+      });
+
       console.log("Payment Address: " + session.get("paymentAddress"));
       console.log("UserId: " + session)
       const twoHours = 2 * 60 * 60 * 1000;
@@ -33,92 +44,25 @@ bot.onEvent = function(session, message) {
       states.getState(session).onMessage(session, message)
       break
     case 'Command':
+      mixpanel.track("event-command", {
+        tokenId: session.get("address"),
+        value: command.value,
+        state: session.get("state")
+      });
       states.getState(session).onCommand(session, message)
       break
     case 'Payment':
+      mixpanel.track("event-payment", {
+        tokenId: session.get("address"),
+        state: session.get("state")
+      });
       states.getState(session).onPayment(session, message)
       break
     case 'PaymentRequest':
+      mixpanel.track("event-payment-request", {
+        tokenId: session.get("address")
+      })
       states.getState(session).onPaymentRequest(session)
       break
   }
 }
-//
-// function onMessage(session, message) {
-//   welcome(session)
-// }
-//
-// function onCommand(session, command) {
-//   switch (command.content.value) {
-//     case 'ping':
-//       pong(session)
-//       break
-//     case 'count':
-//       count(session)
-//       break
-//     case 'donate':
-//       donate(session)
-//       break
-//     }
-// }
-//
-// function onPayment(session, message) {
-//   if (message.fromAddress == session.config.paymentAddress) {
-//     // handle payments sent by the bot
-//     if (message.status == 'confirmed') {
-//       // perform special action once the payment has been confirmed
-//       // on the network
-//     } else if (message.status == 'error') {
-//       // oops, something went wrong with a payment we tried to send!
-//     }
-//   } else {
-//     // handle payments sent to the bot
-//     if (message.status == 'unconfirmed') {
-//       // payment has been sent to the ethereum network, but is not yet confirmed
-//       sendMessage(session, `Thanks for the payment! 🙏`);
-//     } else if (message.status == 'confirmed') {
-//       // handle when the payment is actually confirmed!
-//     } else if (message.status == 'error') {
-//       sendMessage(session, `There was an error with your payment!🚫`);
-//     }
-//   }
-// }
-//
-// // STATES
-//
-// function welcome(session) {
-//   sendMessage(session, `Hello Token!`)
-// }
-//
-// function pong(session) {
-//   sendMessage(session, `Pong`)
-// }
-//
-// // example of how to store state on each user
-// function count(session) {
-//   let count = (session.get('count') || 0) + 1
-//   session.set('count', count)
-//   sendMessage(session, `${count}`)
-// }
-//
-// function donate(session) {
-//   // request $1 USD at current exchange rates
-//   Fiat.fetch().then((toEth) => {
-//     session.requestEth(toEth.USD(1))
-//   })
-// }
-//
-// // HELPERS
-//
-// function sendMessage(session, message) {
-//   let controls = [
-//     {type: 'button', label: 'Ping', value: 'ping'},
-//     {type: 'button', label: 'Count', value: 'count'},
-//     {type: 'button', label: 'Donate', value: 'donate'}
-//   ]
-//   session.reply(SOFA.Message({
-//     body: message,
-//     controls: controls,
-//     showKeyboard: false,
-//   }))
-// }

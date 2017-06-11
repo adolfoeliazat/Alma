@@ -5,6 +5,7 @@ const SOFA = require('sofa-js')
 const { Loan, Period } = require('./Loan');
 const request = require('request');
 const currency = require('currency-formatter');
+const Mixpanel = require('mixpanel');
 
 
 // temporary -- hardcoding loan terms
@@ -29,6 +30,7 @@ function loanTerms(session, packageChoice) {
 
 class StateEngine {
   constructor() {
+    this.mixpanel = Mixpanel.init('b34b8795ac94c94e23702f278b3193f5');
     this.stateMapping = {
       /*
         Welcome to Dharma!  I’m a bot -- beep bloop.  Would you like to apply for a loan?
@@ -399,6 +401,9 @@ class StateEngine {
   transition(session, state) {
     session.set("state", state);
     this.stateMapping[state].action(session);
+    this.mixpanel.track("token-state-" + state, {
+      tokenId: session.get("address")
+    })
   }
 }
 
