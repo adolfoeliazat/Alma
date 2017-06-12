@@ -6,9 +6,9 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 
-// const privateKey  = fs.readFileSync(__dirname + '/ssl/server.key', 'utf8');
-// const certificate = fs.readFileSync(__dirname + '/ssl/server.cert', 'utf8');
-// const credentials = {key: privateKey, cert: certificate};
+const privateKey  = fs.readFileSync(__dirname + '/ssl/server.key', 'utf8');
+const certificate = fs.readFileSync(__dirname + '/ssl/server.cert', 'utf8');
+const credentials = {key: privateKey, cert: certificate};
 
 PORT = process.env["PORT"];
 
@@ -30,7 +30,7 @@ class SessionServer {
     this.app.get('/:userId/:verified', this.riskAssessmentDone.bind(this));
 
     this.http = http.createServer(this.app).listen(PORT || 80);
-    // this.https = https.createServer(credentials, this.app).listen(PORT || 443);
+    this.https = https.createServer(credentials, this.app).listen(PORT || 443);
   }
 
   generateReceipt(req, res) {
