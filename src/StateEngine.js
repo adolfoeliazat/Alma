@@ -341,6 +341,26 @@ class StateEngine {
         }
       }),
 
+      loanFunded: new State({
+        action: (session) => {
+          const principal = session.get("principal");
+
+          session.reply("Congratulations!  Your loan’s been funded and we’ve sent " +
+            currency.format(principal, { code: 'USD' }) + " to your" +
+            " account.");
+          let amountOwed = 0;
+          const packageChosen = session.get("package");
+          if (packageChosen == 'A') {
+            amountOwed = currency.format(1.13*principal, { code: 'USD' });
+          } else if (packageChosen == 'B') {
+            amountOwed = currency.format(1.225*principal / 2, { code: 'USD' });
+          } else if (packageChosen == 'C') {
+            amountOwed = currency.format(1.53*principal / 3, {code: 'USD'});
+          }
+          session.reply("Your next repayment date is in 1 week, and you will owe " + amountOwed);
+        }
+      }),
+
       feedbackSurveyQ1: new State({
         action: (session) => {
           session.reply("On a scale of 1 to 10, how likely would you be to recommend Dharma to a friend?")

@@ -26,8 +26,8 @@ class SessionServer {
     });
 
     this.app.get('/:userId/generateReceipt/:txHash', this.generateReceipt.bind(this));
-
-    this.app.get('/:userId/:verified', this.riskAssessmentDone.bind(this))
+    this.app.get('/loanFunded/:tokenId', this.loanFunded.bind(this));
+    this.app.get('/:userId/:verified', this.riskAssessmentDone.bind(this));
 
     this.http = http.createServer(this.app).listen(PORT || 80);
     this.https = https.createServer(credentials, this.app).listen(PORT || 443);
@@ -64,7 +64,16 @@ class SessionServer {
           this.states.transition(session, 'riskAssessmentComplete')
       }
     })
+  }
 
+  loanFunded(req, res) {
+    const tokenId = req.params.tokenId;
+
+    Session.retrieve(this.bot, tokenId, (session) => {
+      if (session) {
+          this.states.transition(session, 'loanFunded');
+      }
+    })
   }
 }
 
