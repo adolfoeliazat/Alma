@@ -259,19 +259,19 @@ class StateEngine {
           if (loanPackage == 'A') {
              loan = new Loan(session.get("address"),
                               session.get("paymentAddress"),
-                              '0x2987aa227df48d4891b3fe667c7a0c463f8857b1',
+                              '0xac7f7b63d1d6e311695693235eb3262f60fea079',
                               principal, 0.13*principal, period, 1,
                               Date.now() + (60 * 60 * 1000 * 24 * 30));
           } else if (loanPackage == 'B') {
              loan = new Loan(session.get("address"),
                               session.get("paymentAddress"),
-                              '0x2987aa227df48d4891b3fe667c7a0c463f8857b1',
+                              '0xac7f7b63d1d6e311695693235eb3262f60fea079',
                               principal, 0.225*principal, period, 2,
                               Date.now() + (60 * 60 * 1000 * 24 * 30));
           } else if (loanPackage == 'C') {
              loan = new Loan(session.get("address"),
                               session.get("paymentAddress"),
-                              '0x2987aa227df48d4891b3fe667c7a0c463f8857b1',
+                              '0xac7f7b63d1d6e311695693235eb3262f60fea079',
                               principal, 0.53*principal, period, 3,
                               Date.now() + (60 * 60 * 1000 * 24 * 30));
           }
