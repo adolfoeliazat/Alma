@@ -16,10 +16,14 @@ services:
       - DATABASE_URL=postgres://token:va5uOdJBqu2dZ1@postgres:5432/token
       - LOG_LEVEL=INFO
       - ENABLE_LOG_TIMESTAMPS=0
-      - PORT=8000
+      - HTTP_PORT=8000
+      - HTTPS_PORT=8443
+      - WEB3_PROVIDER=http://geth:8545
+      - DEFAULT_ACCOUNT=ac7f7b63d1d6e311695693235eb3262f60fea079
     volumes:
       - ./config/docker.yml:/usr/src/headless-client/config.yml
       - ./attachments:/usr/src/headless-client/attachments
+
   bot:
     build: .
     ports:
@@ -30,7 +34,10 @@ services:
     environment: *environment
     volumes:
       - ./config/docker.yml:/usr/src/bot/config.yml
+      - ./contracts:/usr/src/bot/src/contracts
       - ./src:/usr/src/bot/src
+      - ./ssl:/usr/src/bot/src/ssl
+      - ./attestations:/usr/src/bot/attestations
   redis:
     build: dependencies/redis
     ports:
@@ -43,3 +50,20 @@ services:
       - POSTGRES_PASSWORD=va5uOdJBqu2dZ1
       - POSTGRES_USER=token
       - POSTGRES_DB=token
+  geth:
+    image: ethereum/client-go
+    command: geth  --testnet --testnet --keystore=/root/.ethereum/payouts/keystore --fast --networkid=3 --rpc --rpcaddr '0.0.0.0' --rpcapi eth,net,web3,personal,admin,miner --unlock ac7f7b63d1d6e311695693235eb3262f60fea079 --password /root/payout_password
+    volumes:
+      - ./payouts/keystore:/root/.ethereum/payouts/keystore:rw
+      - ./payouts/payout_password:/root/payout_password:ro
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8545:8545"
+  ipfs:
+    image: ipfs/go-ipfs
+    command: daemon
+    ports:
+     - "8080:8080"
+     - "5001:5001"
+     - "4001:4001"

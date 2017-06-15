@@ -32,16 +32,21 @@ bot.onEvent = function(session, message) {
 
       console.log("Payment Address: " + session.get("paymentAddress"));
       console.log("UserId: " + session)
-      const twoHours = 2 * 60 * 60 * 1000;
-      if (!session.get("state") || Date.now() - session.get('startTimestamp') > twoHours)
-        setState(session, 'welcome');
 
-      // Debug functionality
-      if (message.body[0] == '/')
-        setState(session, message.body.substring(1))
+      bot.client.store.setKey('ethAddress-' + session.get("paymentAddress"),
+        session.get("address")).then(() => {
+          const twoHours = 2 * 60 * 60 * 1000;
+          if (!session.get("state") || Date.now() - session.get('startTimestamp') > twoHours)
+            setState(session, 'welcome');
 
-      console.log(session.get('state'));
-      states.getState(session).onMessage(session, message)
+          // Debug functionality
+          if (message.body[0] == '/')
+            setState(session, message.body.substring(1))
+
+          console.log(session.get('state'));
+          states.getState(session).onMessage(session, message)
+      });
+
       break
     case 'Command':
       mixpanel.track("event-command", {

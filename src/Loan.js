@@ -1,4 +1,4 @@
-DAPP_ROOT = process.env['DAPP_ROOT_PATH']; 
+DAPP_ROOT = process.env['DAPP_ROOT_PATH'];
 
 class Period {
   constructor(type, length) {
