@@ -34,7 +34,7 @@ class SessionServer {
         console.log(error);
       } else {
         if(sync === true) {
-           web3.reset(true);
+           this.web3.reset(true);
         } else if(sync) {
            console.log("Syncing: " + sync.currentBlock);
         } else {
