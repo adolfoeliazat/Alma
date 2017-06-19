@@ -1,0 +1,1373 @@
+Starting alma_postgres_1 ... 
+Starting alma_redis_1 ... 
+Starting alma_postgres_1
+Starting alma_redis_1
+[1A[2KStarting alma_postgres_1 ... [32mdone[0m[1B[1A[2KStarting alma_redis_1 ... [32mdone[0m[1BStarting alma_bot_1 ... 
+Starting alma_headless-client_1 ... 
+Starting alma_bot_1
+Starting alma_headless-client_1
+[1A[2KStarting alma_bot_1 ... [32mdone[0m[1B[1A[2KStarting alma_headless-client_1 ... [32mdone[0m[1BAttaching to alma_postgres_1, alma_redis_1, alma_bot_1, alma_headless-client_1
+[36mpostgres_1         |[0m LOG:  database system was shut down at 2017-06-11 01:00:16 UTC
+[36mpostgres_1         |[0m LOG:  MultiXact member wraparound protections are now enabled
+[36mpostgres_1         |[0m LOG:  database system is ready to accept connections
+[36mpostgres_1         |[0m LOG:  autovacuum launcher started
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.406 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.406 # Server can't set maximum open files to 10032 because of OS error: Operation not permitted.
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.406 # Current maximum open files is 4096. maxclients has been reduced to 4064 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+[33mredis_1            |[0m                 _._                                                  
+[33mredis_1            |[0m            _.-``__ ''-._                                             
+[33mredis_1            |[0m       _.-``    `.  `_.  ''-._           Redis 3.2.9 (00000000/0) 64 bit
+[33mredis_1            |[0m   .-`` .-```.  ```\/    _.,_ ''-._                                   
+[33mredis_1            |[0m  (    '      ,       .-`  | `,    )     Running in standalone mode
+[33mredis_1            |[0m  |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+[33mredis_1            |[0m  |    `-._   `._    /     _.-'    |     PID: 1
+[33mredis_1            |[0m   `-._    `-._  `-./  _.-'    _.-'                                   
+[33mredis_1            |[0m  |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+[33mredis_1            |[0m  |    `-._`-._        _.-'_.-'    |           http://redis.io        
+[33mredis_1            |[0m   `-._    `-._`-.__.-'_.-'    _.-'                                   
+[33mredis_1            |[0m  |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+[33mredis_1            |[0m  |    `-._`-._        _.-'_.-'    |                                  
+[33mredis_1            |[0m   `-._    `-._`-.__.-'_.-'    _.-'                                   
+[33mredis_1            |[0m       `-._    `-.__.-'    _.-'                                       
+[33mredis_1            |[0m           `-._        _.-'                                           
+[33mredis_1            |[0m               `-.__.-'                                               
+[33mredis_1            |[0m 
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.408 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.408 # Server started, Redis version 3.2.9
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.408 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.408 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+[33mredis_1            |[0m 1:M 11 Jun 01:00:53.408 * The server is now ready to accept connections on port 6379
+[32mbot_1              |[0m [33m[nodemon] 1.11.0[39m
+[32mbot_1              |[0m [33m[nodemon] to restart at any time, enter `rs`[39m
+[32mbot_1              |[0m [33m[nodemon] watching: *.*[39m
+[32mbot_1              |[0m [32m[nodemon] starting `node src/bot.js config.yml`[39m
+[32mbot_1              |[0m [32m[I] Fiat: Fetching rates[39m
+[32mbot_1              |[0m [32m[I] TOKEN ID: 0xc31db1464221ea5a29f714667ad7e542b697e4e6[39m
+[32mbot_1              |[0m [32m[I] PAYMENT ADDRESS KEY: 0xd2ba837b94b3cc1b35e2b226dd0c36abd24adaa5[39m
+[32mbot_1              |[0m [32m[I] Fiat: Rates initialized successfully[39m
+[35mheadless-client_1  |[0m com.bakkenbaeck.token.headless.TokenHeadlessClientConfiguration@1055e4af
+[35mheadless-client_1  |[0m [main] INFO org.flywaydb.core.internal.util.VersionPrinter - Flyway 4.2.0 by Boxfuse
+[35mheadless-client_1  |[0m [main] INFO org.flywaydb.core.internal.dbsupport.DbSupportFactory - Database: jdbc:postgresql://postgres:5432/token (PostgreSQL 9.6)
+[35mheadless-client_1  |[0m [main] INFO org.flywaydb.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.049s)
+[35mheadless-client_1  |[0m [main] INFO org.flywaydb.core.internal.command.DbMigrate - Current version of schema "public": 2
+[35mheadless-client_1  |[0m [main] INFO org.flywaydb.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.crypto.MnemonicCode - PBKDF2 took 205.7 ms
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.wallet.KeyChainGroup - Creating and activating a new HD chain: com.tokenbrowser.crypto.hdshim.EthereumDeterministicKeyChain@1253e7cb
+[35mheadless-client_1  |[0m [main] WARN org.bitcoinj.core.Context - Implicitly creating context. This is a migration step and this message will eventually go away.
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.core.Context - Creating bitcoinj 0.14.3 context.
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.wallet.DeterministicKeyChain - 133 keys needed for M/0H/0 = 0 issued + 100 lookahead size + 33 lookahead threshold - 0 num children
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.wallet.DeterministicKeyChain - Took 161.1 ms
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.wallet.DeterministicKeyChain - 133 keys needed for M/0H/1 = 0 issued + 100 lookahead size + 33 lookahead threshold - 0 num children
+[35mheadless-client_1  |[0m [main] INFO org.bitcoinj.wallet.DeterministicKeyChain - Took 114.3 ms
+[35mheadless-client_1  |[0m ID Address: 0xc31db1464221ea5a29f714667ad7e542b697e4e6
+[35mheadless-client_1  |[0m Payment Address: 0xd2ba837b94b3cc1b35e2b226dd0c36abd24adaa5
+[35mheadless-client_1  |[0m Registered with ID service as 'DharmaAssistant'
+[35mheadless-client_1  |[0m Successfully updated avatar
+[35mheadless-client_1  |[0m onSubcribe 0xc31db1464221ea5a29f714667ad7e542b697e4e6
+[35mheadless-client_1  |[0m onSubcribe 0xc31db1464221ea5a29f714667ad7e542b697e4e6_rpc_request
+[32mbot_1              |[0m [32m[I] Headless client ready...[39m
+[35mheadless-client_1  |[0m Envelope from: 0x0a93a7fb2c9a82ec6b780372d47a5af75577dc5e (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x0a93a7fb2c9a82ec6b780372d47a5af75577dc5e
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'PaymentRequest' from @user35888[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::PaymentRequest:{"destinationAddress":"0xe0591b0bf36d37[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  a80223e8aba1e05393b29425d5","value":"0x15baa91c6bf400"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user35888[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x0a93a7fb2c9a82ec6b780372d47a5af75577dc5e (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x0a93a7fb2c9a82ec6b780372d47a5af75577dc5e (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x0a93a7fb2c9a82ec6b780372d47a5af75577dc5e
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user35888[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0xe0591b0bf36d[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  37a80223e8aba1e05393b29425d5"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xc0b57e592dcb4f50971fd75291b25e6837834e79 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xc0b57e592dcb4f50971fd75291b25e6837834e79
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user49795[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Package A","value":"package-a"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user49795[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xc0b57e592dcb4f50971fd75291b25e6837834e79 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xc0b57e592dcb4f50971fd75291b25e6837834e79 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xc0b57e592dcb4f50971fd75291b25e6837834e79
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user49795[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"es","paymentAddress":"0x073a156d8113[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  f39bb276b0b001f7a5d3b812d391"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hi[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0xe8deb69d4e2a[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  89988da87d164eb13d962cbf6341"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xe8deb69d4e2a89988da87d164eb13d962cbf6341
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951
+[35mheadless-client_1  |[0m Envelope from: 0x1d97545eabe79b3bbc2830b334ab1118cb03a951 (device: 1)
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from sangherapaul (@sangherapaul)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0xe8deb69d4e2a[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  89988da87d164eb13d962cbf6341"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0x21d7bb1a1e66[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  63d705a87a556301abe7067acadd"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x21d7bb1a1e6663d705a87a556301abe7067acadd
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x21d7bb1a1e6663d705a87a556301abe7067acadd
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  500[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x21d7bb1a1e6663d705a87a556301abe7067acadd
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x21d7bb1a1e6663d705a87a556301abe7067acadd
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"What's a Risk Assessor?","value":"que[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  stion"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Borrowers like yourself can apply for a loan with any risk assessor of their choice in the risk assessment marketplace.  The higher your risk-assessor’s rating, the more investors trust them, meaning your loan is more likely to get funded.[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Don’t worry, though -- you won’t get charged until your loan is fully funded and the money is in your hands.[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Sometimes, borrowers are either unwilling or unable to pay back a loan.  A risk assessor is a trusted, centralized entity that, for a small, fixed fee, looks at a borrower’s credit history both in and outside the Dharma network and predicts the likelihood that a borrower will pay back the loan.[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to EvanVanNess (@EvanVanNess)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x6d768b435907468ce0c6b11af4f6150a31f01bbe (device: 1)
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x97684f17d03361e508015c6a83bce47e12bcb79a
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x97684f17d03361e508015c6a83bce47e12bcb79a
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0x32c5c2132[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  76dc08404cb615afb5395b32fefdb52"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x32c5c213276dc08404cb615afb5395b32fefdb52
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x97684f17d03361e508015c6a83bce47e12bcb79a
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x97684f17d03361e508015c6a83bce47e12bcb79a
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  1[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x32c5c213276dc08404cb615afb5395b32fefdb52
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x97684f17d03361e508015c6a83bce47e12bcb79a
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Got it","value":"got-it"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user00150[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x97684f17d03361e508015c6a83bce47e12bcb79a (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0xcc0e35013[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  822f155e204d658ee304e0b4e38379a"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xcc0e35013822f155e204d658ee304e0b4e38379a
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hi[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xcc0e35013822f155e204d658ee304e0b4e38379a
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xcc0e35013822f155e204d658ee304e0b4e38379a
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please reply with only a number[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xcc0e35013822f155e204d658ee304e0b4e38379a
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"What's a Risk Assessor?","value":"que[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  stion"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Borrowers like yourself can apply for a loan with any risk assessor of their choice in the risk assessment marketplace.  The higher your risk-assessor’s rating, the more investors trust them, meaning your loan is more likely to get funded.[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Don’t worry, though -- you won’t get charged until your loan is fully funded and the money is in your hands.[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Sometimes, borrowers are either unwilling or unable to pay back a loan.  A risk assessor is a trusted, centralized entity that, for a small, fixed fee, looks at a borrower’s credit history both in and outside the Dharma network and predicts the likelihood that a borrower will pay back the loan.[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user495898[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x81207dc368ee9c2c8f5dc696a807ba54f9313593 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0x923ac4162[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  77f93efead116b276b9d6aa7e346758"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x923ac416277f93efead116b276b9d6aa7e346758
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  $5000,00[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x923ac416277f93efead116b276b9d6aa7e346758
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please reply with only a number[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  500,00[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x923ac416277f93efead116b276b9d6aa7e346758
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please reply with only a number[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  50,00[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x923ac416277f93efead116b276b9d6aa7e346758
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please reply with only a number[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  500[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x923ac416277f93efead116b276b9d6aa7e346758
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  -1[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x923ac416277f93efead116b276b9d6aa7e346758
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Got it","value":"got-it"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user47473[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xcaa93ddaecd3af3e383d93d5b7a6ee5c57a89937 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0x7f86e81b6bdd[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  a99143dbf818bbba7a559617a5ce"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x7f86e81b6bdda99143dbf818bbba7a559617a5ce
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Help[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x7f86e81b6bdda99143dbf818bbba7a559617a5ce
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m welcome
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  2[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x7f86e81b6bdda99143dbf818bbba7a559617a5ce
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Got it","value":"got-it"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x501a730b37c744d0dadec3680424a93a231164cb
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to BlockEquity (@blockequity)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x501a730b37c744d0dadec3680424a93a231164cb (device: 1)
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35mheadless-client_1  |[0m Envelope from: 0xa9e975d5247943d963a196861016a0410832eca1 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xa9e975d5247943d963a196861016a0410832eca1
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from user08346 (@franzs)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to user08346 (@franzs)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xa9e975d5247943d963a196861016a0410832eca1 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xa9e975d5247943d963a196861016a0410832eca1 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xa9e975d5247943d963a196861016a0410832eca1
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from user08346 (@franzs)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0x89dc0fc7dcc6[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  3d071024a16a4211e2c504c17b43"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x89dc0fc7dcc63d071024a16a4211e2c504c17b43
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to user08346 (@franzs)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xa9e975d5247943d963a196861016a0410832eca1 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user80950[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user80950[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user80950[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0x4c41cb0ea[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  db9824fb7e85cae9458356f6cfce507"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x4c41cb0eadb9824fb7e85cae9458356f6cfce507
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user80950[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8259592ac1023353c13802246deff8f34ab371af
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8259592ac1023353c13802246deff8f34ab371af
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0xbefad78d2[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  199700d37bb49108eb435b6958d49c6"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xbefad78d2199700d37bb49108eb435b6958d49c6
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8259592ac1023353c13802246deff8f34ab371af
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8259592ac1023353c13802246deff8f34ab371af
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  1[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xbefad78d2199700d37bb49108eb435b6958d49c6
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8259592ac1023353c13802246deff8f34ab371af
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Got it","value":"got-it"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8259592ac1023353c13802246deff8f34ab371af
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user51683[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8259592ac1023353c13802246deff8f34ab371af (device: 1)
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35mheadless-client_1  |[0m Envelope from: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user80950[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  For how much[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x4c41cb0eadb9824fb7e85cae9458356f6cfce507
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user80950[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xe0b6c884200bf7be02d2836e0f1550d4e7631d55 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0x4ea120b5d[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  03f80371a783d445d6b5889020475d1"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x4ea120b5d03f80371a783d445d6b5889020475d1
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Test[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x4ea120b5d03f80371a783d445d6b5889020475d1
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Nope[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x4ea120b5d03f80371a783d445d6b5889020475d1
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user352318[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x8fbb87b6476cf99d72e3989b3a3ef53642be00ed (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hey[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en_US","paymentAddress":"0x3a5f00625[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  42dd5e6931df306c9bbc0ec0dc81a4b"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x3a5f0062542dd5e6931df306c9bbc0ec0dc81a4b
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Yes!","value":"yes"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  How much money do you need? (in USD) [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: maximum cap for first-time users is $50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  50[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x3a5f0062542dd5e6931df306c9bbc0ec0dc81a4b
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m howMuchMoney
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m going to show you a list of Risk Assessors I trust -- for a small fee, they’ll vouch for your trustworthiness and help me get an idea of what interest rate you should get.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [got-it]  [question] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  First, I’d like to learn a bit more about you…[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Excellent -- I’m happy to walk you through the loan application process[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Got it","value":"got-it"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hey[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x3a5f0062542dd5e6931df306c9bbc0ec0dc81a4b
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m riskAssessorMenu
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hey[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x3a5f0062542dd5e6931df306c9bbc0ec0dc81a4b
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m riskAssessorMenu
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hello[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m User has not sent Init message, sending InitRequest
+[32mbot_1              |[0m No errors
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'InitRequest' to kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[90m  SOFA::InitRequest:{"values":["paymentAddress","language"]}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0xb2c8db2a5d79[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  4dad1750a2a7f151f856fd6f643f"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0xb2c8db2a5d794dad1750a2a7f151f856fd6f643f
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m I'm here
+[32mbot_1              |[0m welcome
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Welcome to Dharma![32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  I’m a bot -- beep bloop.[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  [32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Would you like to apply for a loan?[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐   [yes] [32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5
+[35mheadless-client_1  |[0m Envelope from: 0x2bbd038677574c19c9072c2fb3ba3fbea572b7a5 (device: 1)
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Init' from kbecks (@kbecks)[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Init:{"language":"en","paymentAddress":"0xb2c8db2a5d79[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  4dad1750a2a7f151f856fd6f643f"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Message' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  Hey[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m Payment Address: 0x3a5f0062542dd5e6931df306c9bbc0ec0dc81a4b
+[32mbot_1              |[0m UserId: [object Object]
+[32mbot_1              |[0m riskAssessorMenu
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Please choose the Risk Assessor you’d like to work with[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Note: You will only be charged automatically once your loan is fully funded[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Risk Assessor - Rating - Fee: ( [raa-english]  [raa-hindi]  [raa-hebrew] )FAQ: ( [faq-what-is-raa]  [faq-raa-rating]  [faq-other] )[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m wrapped.sender: 0xacf4b2922d6456463952a94df425c86cf5246913
+[32mbot_1              |[0m [32m[I] [33m⇒  Received 'Command' from @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  SOFA::Command:{"body":"Dharma Risk Assessment Ltd. - A --$0.[32m[39m
+[32mbot_1              |[0m [32m[I] [33m⇒  [32m[90m  5","value":"raa-english"}[32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[32mbot_1              |[0m [32m[I] [32m⇐  Sent 'Message' to @user145167[32m[39m
+[32mbot_1              |[0m [32m[I] [32m⇐  Dharma Risk Assessment Ltd. will message you shortly with further instructions.  Tap 'Recent' to reach the recent messages screen -- they may have messaged you already![32m[39m
+[32mbot_1              |[0m 
+[32mbot_1              |[0m 
+[35mheadless-client_1  |[0m Envelope from: 0xacf4b2922d6456463952a94df425c86cf5246913 (device: 1)
+[32mbot_1              |[0m { Error: connect ETIMEDOUT 172.31.10.89:443
+[32mbot_1              |[0m     at Object.exports._errnoException (util.js:1014:11)
+[32mbot_1              |[0m     at exports._exceptionWithHostPort (util.js:1037:20)
+[32mbot_1              |[0m     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:14)
+[32mbot_1              |[0m   code: 'ETIMEDOUT',
+[32mbot_1              |[0m   errno: 'ETIMEDOUT',
+[32mbot_1              |[0m   syscall: 'connect',
+[32mbot_1              |[0m   address: '172.31.10.89',
+[32mbot_1              |[0m   port: 443 }
+[35malma_headless-client_1 exited with code 143
+[0m[32malma_bot_1 exited with code 137
+[0m[33mredis_1            |[0m 1:signal-handler (1497160472) Received SIGTERM scheduling shutdown...
+[36mpostgres_1         |[0m LOG:  received smart shutdown request
+[36mpostgres_1         |[0m LOG:  autovacuum launcher shutting down
+[36mpostgres_1         |[0m LOG:  shutting down
+[36mpostgres_1         |[0m LOG:  database system is shut down
+[33mredis_1            |[0m 1:M 11 Jun 05:54:32.824 # User requested shutdown...
+[33mredis_1            |[0m 1:M 11 Jun 05:54:32.824 # Redis is now ready to exit, bye bye...
+[36malma_postgres_1 exited with code 0
+[0m[33malma_redis_1 exited with code 0
+[0m
