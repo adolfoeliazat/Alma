@@ -10,8 +10,8 @@ services:
       - TOKEN_APP_USERNAME=AlmaTest
       - TOKEN_APP_NAME=AlmaTest
       - TOKEN_APP_AVATAR=attachments/square_logo.png
-      - OZ_ROOT_PATH=https://dharma-oz.ngrok.io
-      - DAPP_ROOT_PATH=https://dharma-serra.ngrok.io
+      - OZ_ROOT_PATH=http://dharma-oz.ngrok.io
+      - DAPP_ROOT_PATH=http://dharma-serra.ngrok.io
       - REDIS_URL=redis://h:rlcMWNrxXgqS0xM8aWCYuE0R@redis:6379
       - DATABASE_URL=postgres://token:va5uOdJBqu2dZ1@postgres:5432/token
       - LOG_LEVEL=INFO
@@ -19,7 +19,8 @@ services:
       - HTTP_PORT=8000
       - HTTPS_PORT=8443
       - WEB3_PROVIDER=http://geth:8545
-      - DEFAULT_ACCOUNT=ac7f7b63d1d6e311695693235eb3262f60fea079
+      - DEFAULT_ACCOUNT=0xac7f7b63d1d6e311695693235eb3262f60fea079
+      - LOAN_CONTRACT_ADDR=0x29BEDe679f82cfE352795d375d0BFe51FFbb05F1
     volumes:
       - ./config/docker.yml:/usr/src/headless-client/config.yml
       - ./attachments:/usr/src/headless-client/attachments
@@ -52,10 +53,9 @@ services:
       - POSTGRES_DB=token
   geth:
     image: ethereum/client-go
-    command: geth  --testnet --testnet --keystore=/root/.ethereum/payouts/keystore --fast --networkid=3 --rpc --rpcaddr '0.0.0.0' --rpcapi eth,net,web3,personal,admin,miner --unlock ac7f7b63d1d6e311695693235eb3262f60fea079 --password /root/payout_password
+    command: --testnet --keystore=/root/payouts/keystore --fast --cache=512 --networkid=3 --rpc --rpcaddr 'geth' --rpcapi eth,net,web3,personal,admin,miner --unlock ac7f7b63d1d6e311695693235eb3262f60fea079 --password /root/payouts/password --verbosity 4
     volumes:
-      - ./payouts/keystore:/root/.ethereum/payouts/keystore:rw
-      - ./payouts/payout_password:/root/payout_password:ro
+      - ./payouts:/root/payouts:rw
     ports:
       - "30303:30303"
       - "30303:30303/udp"

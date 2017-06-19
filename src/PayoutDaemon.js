@@ -10,25 +10,30 @@ const Attestor = require('./Attestor.js');
 class PayoutDaemon {
   constructor() {
     this.web3 = new Web3(new Web3.providers.HttpProvider(WEB3_PROVIDER));
-    this.web3.defaulAccount = DEFAULT_ACCOUNT;
+    this.web3.eth.defaultAccount = DEFAULT_ACCOUNT;
     this.contract = this.web3.eth.contract(abi).at(LOAN_CONTRACT_ADDR);
     this.attestor = new Attestor(this.web3);
 
-    this.loanCreatedEvent = this.contract.LoanCreated({ fromBlock: 'latest' });
+    this.loanCreatedEvent = this.contract.LoanCreated({ fromBlock: 1145337 });
     this.loanAttestedEvent = this.contract.Attested({ fromBlock: 'latest' });
     this.loanTermBeginEvent = this.contract.LoanTermBegin({ fromBlock: 'latest' });
+
+    this.onLoanCreated = this.onLoanCreated.bind(this);
+    this.onLoanAttested = this.onLoanAttested.bind(this);
+
   }
 
   init(callbacks={}) {
     this.loanCreatedEvent.watch(callbacks['onLoanCreated'] || this.onLoanCreated);
     this.loanAttestedEvent.watch(callbacks['onLoanAttested'] || this.onLoanAttested);
-    this.loanTermBeginEvent.watch(callbacks['onLoanTermBegin'] || this.onLoanFunded);
+    this.loanTermBeginEvent.watch(callbacks['onLoanFunded'] || this.onLoanFunded);
   }
 
   onLoanCreated(error, result) {
     if (error) {
       console.log(error);
     } else {
+      console.log("LoanCreated event; UUID: " + result.args._uuid);
       this.attestToLoan(result.args._uuid);
     }
   }
@@ -37,13 +42,17 @@ class PayoutDaemon {
     if (error) {
       console.log(error);
     } else {
-      const principal = this.contract.getPrincipal.call(results.args._uuid);
-      this.fundLoan(result.args._uuid, { value: principal, gas: 1000000 }, function(err, tx) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Funded Loan: " + tx);
-        }
+      console.log("LoanAttested event; UUID: " + result.args._uuid);
+
+      const principal = this.contract.getPrincipal.call(result.args._uuid);
+      this.contract.fundLoan(result.args._uuid, this.web3.eth.defaultAccount,
+        { value: principal, gas: 1000000 },
+        function(err, tx) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("Funded Loan: " + tx);
+          }
       });
     }
   }
@@ -51,17 +60,18 @@ class PayoutDaemon {
   attestToLoan(uuid) {
     this.attestor.getAttestationCommitment(uuid, function(err, commitment) {
       if (err) {
-        console.log(err);
+        console.log("IPFS Error: " + err);
       } else {
-        this.contract.attest(uuid, commitment, function (error, result) {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log("Attested to loan at UUID " + uuid);
-          }
+        this.contract.attest(uuid, commitment, { gas: 1000000 },
+          function (error, result) {
+            if (error) {
+              console.log("Attestation exception: " + error);
+            } else {
+              console.log("Attested to loan at tx " + result);
+            }
         })
       }
-    });
+    }.bind(this));
   }
 
   onLoanTermBegin(error, result) {

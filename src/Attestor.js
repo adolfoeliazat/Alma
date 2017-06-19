@@ -15,29 +15,27 @@ class Attestor {
   getAttestationCommitment(uuid, callback) {
     let attestation = STANDARD_ATTESTATION;
     attestation['uuid'] = uuid;
-    const data = stringify(attestation);
-    const signature = this.web3.eth.sign('ac7f7b63d1d6e311695693235eb3262f60fea079', data);
+    const data = this.web3.sha3(stringify(attestation));
+    const signature = this.web3.eth.sign('0xac7f7b63d1d6e311695693235eb3262f60fea079', data);
     attestation['r'] = signature.substr(0,64);
     attestation['s'] = signature.substr(64,128);
     attestation['v'] = signature.substr(128,130);
 
-    const filePath = "/attestations/" + uuid;
+    const filePath = __dirname + "/../attestations/" + uuid;
     fs.writeFile(filePath, attestation, function(err) {
       if(err) {
         return callback(err);
       }
 
-      ipfs.file.add({
-        path: filePath,
-        content: fs.createReadStream(filePath),
-      }, function(err, res) {
+      this.ipfs.files.add(fs.createReadStream(filePath),
+       function(err, res) {
           if (err) {
-            callback(err)
+            callback(err, null)
           } else {
-            callback(res.hash)
+            callback(null, res[0].hash)
           }
       })
-    })
+    }.bind(this))
   }
 }
 
