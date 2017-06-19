@@ -44,7 +44,7 @@ class SessionServer {
             });
         }
       }
-    });
+    }.bind(this));
 
     if (!syncState.lastSyncState) {
       this.payoutDaemon.init({
