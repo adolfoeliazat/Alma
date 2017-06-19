@@ -1,5 +1,6 @@
 .DS_Store
 state
+attestations/*
 node_modules
 /build
 .gradle
